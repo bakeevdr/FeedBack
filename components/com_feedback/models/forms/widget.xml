@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<form name="Widget">
+	<fieldset name="WidgetAdd">
+		<field
+			name="title"
+			type="text"
+			required="true"
+			maxlength ="100"
+			hint="Краткое описание"
+		/>
+		<field
+			name="description"
+			type="textarea"
+			rows = "5"
+			cols="100%"
+			hint="Подробное описание"
+		/>
+		<field
+			name="type_id"
+			type="SQL"
+			multiple="false"
+			size="1"
+			query="SELECT * FROM #__feedback_type"
+			key_field="id"
+			value_field="name"
+			required="true"
+		>
+			<option value="0" disabled="true">-= Выберите тип =-</option>
+		</field>
+		<field
+			name="hide" 
+			type="checkbox"
+			label="Приватно"
+			default="0"
+			>
+		</field>
+		<field
+			name="project_id"
+			type="hidden"
+		/>
+		<field
+			name="nicname"
+			type="text"
+			required="true"
+			maxlength ="100"
+			hint="Представьтесь пожалуйста"
+			default='Гость'
+		/>
+	</fieldset>
+</form>

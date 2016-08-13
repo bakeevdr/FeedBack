@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset
+		name="details"
+		label="Общее"
+	>
+		<field
+			name="id"
+			type="hidden"
+		/>
+		<field
+			name="name"
+			type="text"
+			label="Название проекта"
+			size="40"
+			class="inputbox"
+			required="true"
+		/>
+		<field
+			name="wwwsite"
+			type="text"
+			label="Web адрес"
+			size="40"
+			class="inputbox"
+			required="true"
+		/>
+		<field 
+			name="manager" 
+			type="user"
+			label="Менеджер"
+			filter="unset" 
+			required="true"
+		/>
+		<field
+			name="description"
+			type="editor"
+			label="Описание "
+			description="Описание"
+			buttons="false"
+			editor = "none"
+			height = "100"
+			filter = "raw"
+			required="true"
+		/>
+	</fieldset>
+</form>

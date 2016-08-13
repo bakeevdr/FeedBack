@@ -1,0 +1,1 @@
+<?phpdefined('_JEXEC') or die();//jimport('joomla.application.component.controller');class FeedbackControllerControl extends JControllerLegacy{}
