@@ -24,6 +24,7 @@
 			key_field="id"
 			value_field="name"
 			required="true"
+			default="0"
 		>
 			<option value="0" disabled="true">-= Выберите тип =-</option>
 		</field>

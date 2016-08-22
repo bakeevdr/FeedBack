@@ -25,10 +25,9 @@
 			required="true"
 		/>
 		<field 
-			name="manager" 
+			name="manager_id" 
 			type="user"
 			label="Менеджер"
-			filter="unset" 
 			required="true"
 		/>
 		<field

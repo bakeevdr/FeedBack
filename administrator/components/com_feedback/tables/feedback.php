@@ -12,8 +12,8 @@ class TableFeedback extends JTable
 	{
 		$Cookie	= JFactory::getApplication()->input->cookie;
 		$array['user_id']=$Cookie->get('fb_ui');
+		
 		$array['status_id']=1;
 		return parent::bind( $array, $ignore );
-		
 	}
 }

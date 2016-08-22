@@ -12,7 +12,7 @@ class FeedBackModelProjects extends JModelList{
 				'name',
 				'description',
 				'wwwsite',
-				'contractor'
+				'manager'
 			);
 		}
 		parent::__construct($config);
@@ -22,9 +22,19 @@ class FeedBackModelProjects extends JModelList{
 	{
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('*')
-			->from('#__feedback_project as proj ');
+		$query->select('FP.*')
+			->from('#__feedback_project as FP ');
 			
+		$query->select(
+				array(
+					$db->quoteName('Fu.name', 'linked_user'),
+					$db->quoteName('Fu.email')
+				)
+			)
+			->join(
+				'LEFT',
+				$db->quoteName('#__users', 'Fu') . ' ON ' . $db->quoteName('Fu.id') . ' = ' . $db->quoteName('FP.manager_id')
+			);
 		  
 		//---- Сортировка
 		$orderCol	= $this->state->get('list.ordering');

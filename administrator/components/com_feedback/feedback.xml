@@ -54,9 +54,14 @@
 	<administration>
 		<menu>COM_FEEDBACK</menu> 
 		<submenu>
-			<menu img="media/feedback/images/48x48/menu_Projects.png"	view="projects">COM_FEEDBACK_PROJECTS</menu>
-			<menu img="media/feedback/images/48x48/menu_Statuses.png"	view="statuses">COM_FEEDBACK_STATUSES</menu>
-			<menu img="media/feedback/images/48x48/menu_Types.png"		view="types">COM_FEEDBACK_TYPES</menu>
+			<menu img="media/feedback/images/48x48/menu_Project.png"	view="projects">COM_FEEDBACK_PROJECTS</menu>
+			<menu img="media/feedback/images/48x48/menu_Feedback.png"	view="feedbacks">COM_FEEDBACK_FEEDBACKS</menu>
+			<menu img="media/feedback/images/48x48/menu_Category.png"	view="categorys">COM_FEEDBACK_CATEGORYS</menu>
+			<menu img="media/feedback/images/48x48/menu_Comment.png"	view="comments">COM_FEEDBACK_COMMENTS</menu>
+			<menu img="media/feedback/images/48x48/menu_User.png"		view="users">COM_FEEDBACK_USERS</menu>
+			<menu img="media/feedback/images/48x48/menu_Status.png"		view="statuses">COM_FEEDBACK_STATUSES</menu>
+			<menu img="media/feedback/images/48x48/menu_Type.png"		view="types">COM_FEEDBACK_TYPES</menu>
+			<menu img="media/feedback/images/48x48/menu_Region.png"		view="regions">COM_FEEDBACK_REGIONS</menu>
 		</submenu>
 		<files folder="admin">
 			<folder>controllers</folder>

@@ -3,13 +3,13 @@ SET FOREIGN_KEY_CHECKS=0;
 -- --------------------------------------------------------
 -- Структура таблицы `Тип отзыва`
 CREATE TABLE IF NOT EXISTS `#__FeedBack_Type` (
-	`id`				int(11)			NOT NULL	AUTO_INCREMENT,
-	`name`				varchar(20)		NOT NULL,
+	`id`				int(11)			NOT NULL	AUTO_INCREMENT 		COMMENT 'Уникальный идентификатор',
+	`name`				varchar(20)		NOT NULL						COMMENT 'Наименование',
 	
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Тип отзыва';
 
-insert into #__FeedBack_Type value 
+insert into `#__FeedBack_Type` value 
 	(1,'Идея'),
 	(2,'Проблема'),
 	(3,'Вопрос'),
@@ -17,16 +17,16 @@ insert into #__FeedBack_Type value
 	
 -- --------------------------------------------------------
 -- Структура таблицы `Тип отзыва`
-CREATE TABLE IF NOT EXISTS `#__FeedBack_KadReg` (
-	`code`			int(11)			NOT NULL,
-	`subject_rf`	varchar(50)		NOT NULL,
-	`type`			varchar(5),
-	`genitive_case`	varchar(50),
-	`full_name`		varchar(50),
+CREATE TABLE IF NOT EXISTS `#__feedback_region` (
+	`code`			int(11)			NOT NULL							COMMENT 'Код',
+	`subject_rf`	varchar(50)		NOT NULL							COMMENT 'Наименование',
+	`type`			varchar(5)		NOT NULL							COMMENT 'Тип',
+	`genitive_case`	varchar(50)		NOT NULL							COMMENT 'Полное наименование',
+	`full_name`		varchar(50)		NOT NULL							COMMENT 'Наименование в родительском падеже',
 	PRIMARY KEY (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Субъекты Российской Федерации';
 
-insert into #__FeedBack_KadReg value 
+insert into `#__feedback_region` value 
 	('1','Адыгея','респ','республике Адыгея','Республика Адыгея'),
 	('2','Башкортостан','респ','республике Башкортостан','Республика Башкортостан'),
 	('3','Бурятия','респ','республике Бурятия','Республика Бурятия'),
@@ -117,20 +117,19 @@ insert into #__FeedBack_KadReg value
 	('88','Эвенкийский','АО','Эвенкийскому автономному округу',''),
 	('89','Ямало-Ненецкий','АО','Ямало-Ненецкому автономному округу','Ямало-Ненецкий автономный округ'),
 	('91','Крым','респ','республике Крым','Республика Крым'),
-	('92','Севастополь','г','городу Севастополь','Севастополь'),
-	('98','Неопределено','','','');
+	('92','Севастополь','г','городу Севастополь','Севастополь');
 
 -- --------------------------------------------------------
 -- Структура таблицы `Status`
 CREATE TABLE IF NOT EXISTS `#__FeedBack_Status` (
-	`id`				int(11)			NOT NULL	AUTO_INCREMENT,
-	`name`				varchar(20)		NOT NULL,
-	`color`				varchar(10)		NOT NULL DEFAULT '#999',
+	`id`				int(11)			NOT NULL	AUTO_INCREMENT		COMMENT 'Уникальный идентификатор',
+	`name`				varchar(20)		NOT NULL						COMMENT 'Название',
+	`color`				varchar(10)		NOT NULL DEFAULT '#999'			COMMENT 'Цвет заливки',
 	
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Статус обработи отзыва';
 
-insert into #__FeedBack_Status value 
+insert into `#__FeedBack_Status` value 
 	(1,'Подан','#999'),
 	(2,'На расcмотрении','#5bc0de'),
 	(3,'В работе','#428bca'),
@@ -140,21 +139,24 @@ insert into #__FeedBack_Status value
 -- ----------------------------------------------------------------------------------------------------------------
 -- Структура таблицы `Project`
 CREATE TABLE IF NOT EXISTS `#__FeedBack_Project` (
-	`id`			int(11)				NOT NULL	AUTO_INCREMENT,
-	`name`			varchar(100)		NOT NULL,
-	`wwwsite`		varchar(100)		NOT NULL,
-	`manager`		int(10)				NOT NULL  DEFAULT 0,
-	`description`	text				NOT NULL,
+	`id`			int(11)				NOT NULL	AUTO_INCREMENT		COMMENT 'Уникальный идентификатор',
+	`name`			varchar(100)		NOT NULL						COMMENT 'Название',
+	`wwwsite`		varchar(100)		NOT NULL						COMMENT 'Место размещения',
+	`manager_id`	int(11)				NOT NULL						COMMENT 'Основной менеджер',
+	`description`	text				NOT NULL						COMMENT 'Краткое описание',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Проекты';
+
+insert into `#__FeedBack_Project` value 
+	(1,'Отзовик','My site',173,'.');
 
 -- --------------------------------------------------------
 -- Структура таблицы `Категории`
 CREATE TABLE IF NOT EXISTS `#__FeedBack_Category` (
-	`id`				int(11)			NOT NULL	AUTO_INCREMENT,
-	`parent_id`			int(11)			NOT NULL,
-	`project_id`		int(11)			NOT NULL,
-	`name`				varchar(100)	NOT NULL,
+	`id`				int(11)			NOT NULL	AUTO_INCREMENT		COMMENT 'Уникальный идентификатор',
+	`project_id`		int(11)			NOT NULL						COMMENT 'Идентификатор проэкта',
+	`parent_id`			int(11)											COMMENT 'Родительская категория',
+	`name`				varchar(100)	NOT NULL						COMMENT 'Название',
 	
 	PRIMARY KEY (`id`),
 	KEY `project_id` (`project_id`),
@@ -167,29 +169,28 @@ CREATE TABLE IF NOT EXISTS `#__FeedBack_Category` (
 -- ----------------------------------------------------------------------------------------------------------------
 -- Структура таблицы `Пользователи`
 CREATE TABLE IF NOT EXISTS `#__FeedBack_User` (
-	`id`			int(11)				NOT NULL	AUTO_INCREMENT,
-	`sys_id`		int(11)				NOT NULL,
-	`name`			varchar(100)		NOT NULL	DEFAULT 'Гость',
-	`name_change`	tinyint(1)			NOT NULL 	DEFAULT 0,
-	`ip`			varchar(15)			NOT NULL,
-	`date_ip`		datetime			NOT NULL	DEFAULT CURRENT_TIMESTAMP,
-	
+	`id`			int(11)				NOT NULL	AUTO_INCREMENT		COMMENT 'Уникальный идентификатор',
+	`sys_id`		int(11)												COMMENT 'Системный пользователь',
+	`name`			varchar(100)		NOT NULL	DEFAULT 'Гость'		COMMENT 'Выводимое имя',
+	`name_change`	tinyint(1)			NOT NULL 	DEFAULT 0			COMMENT 'Признак смены имени',
+	`ip`			varchar(15)			NOT NULL						COMMENT 'Текущий IP адрес',
+	`date_ip`		datetime			NOT NULL	DEFAULT CURRENT_TIMESTAMP COMMENT 'дата установки IP',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Пользователи';
 
 -- ----------------------------------------------------------------------------------------------------------------
 -- Структура таблицы `Отзывы`
 CREATE TABLE IF NOT EXISTS `#__FeedBack` (
-	`id`			int(11)				NOT NULL	AUTO_INCREMENT,
-	`project_id`	int(11)				NOT NULL,
-	`category_id`	int(11)				NOT NULL,
-	`type_id`		int(11)				NOT NULL,
-	`status_id`		int(11)				NOT NULL,
-	`user_id`		int(11)				NOT NULL,
-	`title`			varchar(100)		NOT NULL,
-	`description`	text				NOT NULL,
-	`hide`			tinyint(1)			NOT NULL,
-	`date`			datetime			NOT NULL	DEFAULT CURRENT_TIMESTAMP,
+	`id`			int(11)				NOT NULL	AUTO_INCREMENT		COMMENT 'Уникальный идентификатор',
+	`project_id`	int(11)				NOT NULL						COMMENT 'ID проэкта',
+	`category_id`	int(11)												COMMENT 'ID категории',
+	`type_id`		int(11)				NOT NULL						COMMENT 'ID типа отзыва',
+	`status_id`		int(11)				NOT NULL	DEFAULT 1			COMMENT 'ID статуса выполнения',
+	`user_id`		int(11)				NOT NULL						COMMENT 'ID пользователя',
+	`title`			varchar(100)		NOT NULL						COMMENT 'Краткое наименование отзыва',
+	`description`	text												COMMENT 'Описание отзыва',
+	`hide`			tinyint(1)			NOT NULL						COMMENT 'Скрытое',
+	`date`			datetime			NOT NULL	DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата создания',
 	
 	PRIMARY KEY (`id`),
 	KEY `project_id` (`project_id`),
@@ -209,10 +210,10 @@ CREATE TABLE IF NOT EXISTS `#__FeedBack` (
 -- ----------------------------------------------------------------------------------------------------------------
 -- Структура таблицы `Голосование за отзыв`
 CREATE TABLE IF NOT EXISTS `#__FeedBack_Vote` (
-	`id`			int(11)				NOT NULL	AUTO_INCREMENT,
-	`feedback_id`	int(11)				NOT NULL,
-	`status`		int(11)				NOT NULL,
-	`checkuser`		varchar(100)		NOT NULL,
+	`id`			int(11)				NOT NULL	AUTO_INCREMENT		COMMENT 'Уникальный идентификатор',
+	`feedback_id`	int(11)				NOT NULL						COMMENT 'ID отзыва',
+	`user_id`		int(11)				NOT NULL						COMMENT 'ID проголосовавшегося пользователя',
+	`status`		TINYINT 			NOT NULL 	DEFAULT '0'			COMMENT 'Голос',
 	PRIMARY KEY (`id`),
 	KEY `feedback_id` (`feedback_id`),
 	FOREIGN KEY (`feedback_id`)	REFERENCES `#__FeedBack` (`id`)		ON DELETE CASCADE ON UPDATE CASCADE
@@ -221,12 +222,13 @@ CREATE TABLE IF NOT EXISTS `#__FeedBack_Vote` (
 -- ----------------------------------------------------------------------------------------------------------------
 -- Структура таблицы `Комментарии`
 CREATE TABLE IF NOT EXISTS `#__FeedBack_Comment` (
-	`id`				int(11)			NOT NULL	AUTO_INCREMENT,
-	`feedback_id`		int(11)			NOT NULL,
-	`parent_id`			int(11)			NOT NULL,
-	`user_id`			int(11)			NOT NULL,
-	`date`				datetime		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
-	`comment`			text 			NOT NULL,
+	`id`				int(11)			NOT NULL	AUTO_INCREMENT		COMMENT 'Уникальный идентификатор',
+	`feedback_id`		int(11)			NOT NULL						COMMENT 'ID отзыва',
+	`parent_id`			int(11)											COMMENT 'Родительский коментарий',
+	`user_id`			int(11)			NOT NULL						COMMENT 'ID пользователя',
+	`date`				datetime		NOT NULL	DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата коментария',
+	`comment`			text 			NOT NULL						COMMENT 'Коментарий',
+	`answer`			TINYINT			NOT NULL	DEFAULT '0'			COMMENT 'Признак правильного ответа',
 	
 	PRIMARY KEY (`id`),
 	KEY `feedback_id` (`feedback_id`),
@@ -241,10 +243,10 @@ CREATE TABLE IF NOT EXISTS `#__FeedBack_Comment` (
 -- ----------------------------------------------------------------------------------------------------------------
 -- Структура таблицы `Голосование за коментарий`
 CREATE TABLE IF NOT EXISTS `#__FeedBack_Comment_Vote` (
-	`id`			int(11)				NOT NULL	AUTO_INCREMENT,
-	`comment_id`	int(11)				NOT NULL,
-	`status`		int(11)				NOT NULL,
-	`checkuser`		varchar(100)		NOT NULL,
+	`id`			int(11)				NOT NULL	AUTO_INCREMENT		COMMENT 'Уникальный идентификатор',
+	`comment_id`	int(11)				NOT NULL						COMMENT 'ID коментария',
+	`user_id`		int(11)				NOT NULL						COMMENT 'ID пользователя',
+	`status`		TINYINT 			NOT NULL 	DEFAULT '0'			COMMENT 'Голос',
 	PRIMARY KEY (`id`),
 	KEY `comment_id` (`comment_id`),
 	FOREIGN KEY (`comment_id`)	REFERENCES `#__FeedBack_Comment` (`id`)		ON DELETE CASCADE ON UPDATE CASCADE

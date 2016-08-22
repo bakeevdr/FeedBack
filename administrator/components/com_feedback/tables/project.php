@@ -7,5 +7,4 @@ class FeedBackTableProject extends JTable
 	{
 		parent::__construct('#__feedback_project', 'id', $db);
 	}
-
 }

@@ -37,6 +37,7 @@ $doc->addScriptVersion($this->baseurl . '/templates/' . $this->template . '/js/t
 
 // Add Stylesheets
 $doc->addStyleSheetVersion($this->baseurl . '/templates/' . $this->template . '/css/template.css');
+$doc->addStyleSheetVersion($this->baseurl . '/templates/' . $this->template . '/css/feedback.css');
 
 // Use of Google Font
 if ($this->params->get('googleFont'))

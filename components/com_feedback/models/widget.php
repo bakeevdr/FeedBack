@@ -23,7 +23,7 @@ class FeedbackModelWidget extends JModelAdmin
 			$Cookie	= JFactory::getApplication()->input->cookie;
 			if ($Cookie->get('fb_ui')&& (mb_strtoupper($data['nicname'])!=='ГОСТЬ')) {
 				$db = JFactory::getDBO();
-				$db->setQuery("Update #__feedback_users set name ='".$data['nicname']."', name_change = true WHERE id = ".$Cookie->get('fb_ui'));
+				$db->setQuery("Update #__feedback_user set name ='".$data['nicname']."', name_change = true WHERE id = ".$Cookie->get('fb_ui'));
 				$db->execute();
 			}
 		}

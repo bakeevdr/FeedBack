@@ -29,10 +29,5 @@ class FeedBackModelProject extends JModelAdmin{
 			$item->paramuser = $registry->toArray();/**/
 		}
 		return $item;
-	}/**/
-	
-	/*protected function prepareTable($table)
-	{
-		$table->version++;
-	}/**/
+	}
 }

@@ -15,7 +15,7 @@
 		<?php echo  JHtml::_('grid.sort',  'WEB адрес', 'wwwsite',			$this->listDirn, $this->listOrder); ?>
 	</th>
 	<th>
-		<?php echo  JHtml::_('grid.sort',  'Ответственные', 'contractor',	$this->listDirn, $this->listOrder); ?>
+		<?php echo  JHtml::_('grid.sort',  'Менеджер', 'manager_id',	$this->listDirn, $this->listOrder); ?>
 	</th>
 	<th>
 		<?php echo  JHtml::_('grid.sort',  'Описание', 'description',		$this->listDirn, $this->listOrder); ?>

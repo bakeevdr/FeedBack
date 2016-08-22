@@ -534,8 +534,8 @@ a:focus {
 	clear: both;
 }
 .container-fluid {
-	padding-right: 20px;
-	padding-left: 20px;
+	padding-right: 15px;
+	padding-left: 15px;
 	*zoom: 1;
 }
 .container-fluid:before,
@@ -678,7 +678,7 @@ h4 small {
 ul,
 ol {
 	padding: 0;
-	margin: 0 0 9px 25px;
+	margin: 0;
 }
 ul ul,
 ul ol,
@@ -857,7 +857,7 @@ pre code {
 	overflow-y: scroll;
 }
 form {
-	margin: 0 0 18px;
+	margin: 0px 10px 0 0;
 }
 fieldset {
 	padding: 0;
@@ -2863,8 +2863,6 @@ input[type="submit"].btn.btn-mini {
 	margin-top: 5px;
 }
 .nav {
-	margin-left: 0;
-	margin-bottom: 18px;
 	list-style: none;
 }
 .nav > li > a {
@@ -4366,16 +4364,8 @@ a.badge:focus {
 }
 .progress {
 	overflow: hidden;
-	height: 18px;
-	margin-bottom: 18px;
-	background-color: #f7f7f7;
-	background-image: -moz-linear-gradient(top,#f5f5f5,#f9f9f9);
-	background-image: -webkit-gradient(linear,0 0,0 100%,from(#f5f5f5),to(#f9f9f9));
-	background-image: -webkit-linear-gradient(top,#f5f5f5,#f9f9f9);
-	background-image: -o-linear-gradient(top,#f5f5f5,#f9f9f9);
-	background-image: linear-gradient(to bottom,#f5f5f5,#f9f9f9);
-	background-repeat: repeat-x;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#fff9f9f9', GradientType=0);
+	height: 5px;
+	background-color: red;
 	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
 	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
 	box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);

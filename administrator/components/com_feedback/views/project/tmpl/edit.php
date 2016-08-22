@@ -36,7 +36,6 @@ JHtml::_('behavior.keepalive');
 			<input type="hidden" name="view" value="Projects" />
 			<input type="hidden" name="layout" value="edit" />
 			<input type="hidden" name="id" value="<?php echo $this->item->id?>" />
-			<?php echo $this->form->getInput('parambase');?>
 			<?php echo JHtml::_('form.token'); ?>
 		</div>
 	</div>
