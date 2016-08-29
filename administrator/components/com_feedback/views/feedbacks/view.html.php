@@ -7,9 +7,12 @@ class FeedBackViewFeedBacks extends JViewLegacy
 	function display($tpl = null)
 	{
 		$this->items 		= $items = $this->get('Items');;
-
-		if (count($errors = $this->get('Errors')))
-		{
+		$this->pagination 	= $this->get('Pagination');
+		$this->state 		= $this->get('State');
+		$this->filterForm	= $this->get('FilterForm');
+		$this->activeFilters = $this->get('ActiveFilters');
+		
+		if (count($errors = $this->get('Errors'))){
 			JError::raiseError(500, implode('<br />', $errors));
 			return false;
 		}

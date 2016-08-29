@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension 	type="component"	version="3.0"	method="upgrade">
 	<name>COM_FEEDBACK</name> 
-	<creationDate>2016.07.26</creationDate> <!-- Дата создания -->
+	<creationDate>2016.08.25</creationDate> <!-- Дата создания -->
 	<author>Бакеев Д.Р.</author> <!-- Автор -->
 	<authorEmail>BakeevDR@Gmail.com</authorEmail> <!-- Почта -->
 	<copyright>Copyright (C) 2012 BakeevDR</copyright> <!-- Копирайт -->
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license> <!-- Лицензия -->
-	<version>2016.07.26</version>
+	<version>2016.08.25</version>
 	<description>
 		Отзовик
 	</description>
@@ -29,7 +29,7 @@
 	</update>
 	
 	<!-- Медиа файлы -->
-	<media destination="FeedBack" folder="media">
+	<media destination="feedback" folder="media">
 		<folder>images</folder>
 		<folder>js</folder>
 	</media>
@@ -54,14 +54,14 @@
 	<administration>
 		<menu>COM_FEEDBACK</menu> 
 		<submenu>
-			<menu img="media/feedback/images/48x48/menu_Project.png"	view="projects">COM_FEEDBACK_PROJECTS</menu>
-			<menu img="media/feedback/images/48x48/menu_Feedback.png"	view="feedbacks">COM_FEEDBACK_FEEDBACKS</menu>
-			<menu img="media/feedback/images/48x48/menu_Category.png"	view="categorys">COM_FEEDBACK_CATEGORYS</menu>
-			<menu img="media/feedback/images/48x48/menu_Comment.png"	view="comments">COM_FEEDBACK_COMMENTS</menu>
-			<menu img="media/feedback/images/48x48/menu_User.png"		view="users">COM_FEEDBACK_USERS</menu>
-			<menu img="media/feedback/images/48x48/menu_Status.png"		view="statuses">COM_FEEDBACK_STATUSES</menu>
-			<menu img="media/feedback/images/48x48/menu_Type.png"		view="types">COM_FEEDBACK_TYPES</menu>
-			<menu img="media/feedback/images/48x48/menu_Region.png"		view="regions">COM_FEEDBACK_REGIONS</menu>
+			<menu img="media/feedback/images/48x48/menu_project.png"	view="projects">COM_FEEDBACK_PROJECTS</menu>
+			<menu img="media/feedback/images/48x48/menu_feedback.png"	view="feedbacks">COM_FEEDBACK_FEEDBACKS</menu>
+			<menu img="media/feedback/images/48x48/menu_category.png"	view="categorys">COM_FEEDBACK_CATEGORYS</menu>
+			<menu img="media/feedback/images/48x48/menu_comment.png"	view="comments">COM_FEEDBACK_COMMENTS</menu>
+			<menu img="media/feedback/images/48x48/menu_user.png"		view="users">COM_FEEDBACK_USERS</menu>
+			<menu img="media/feedback/images/48x48/menu_status.png"		view="statuses">COM_FEEDBACK_STATUSES</menu>
+			<menu img="media/feedback/images/48x48/menu_type.png"		view="types">COM_FEEDBACK_TYPES</menu>
+			<menu img="media/feedback/images/48x48/menu_region.png"		view="regions">COM_FEEDBACK_REGIONS</menu>
 		</submenu>
 		<files folder="admin">
 			<folder>controllers</folder>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="filter" >
+		<field
+			name="search"
+			type="text"
+			description="JSEARCH_FILTER"
+			hint="JSEARCH_FILTER"
+		/>
+		<field
+			name="project"
+			type="sql"
+			label="Проекты"
+			query="SELECT * FROM #__feedback_project order by id"
+			key_field="id" 
+			value_field="name" 
+			onchange="this.form.submit();"
+			>
+			<option value=""> -= Проекты =- </option>
+		</field>
+		<field
+			name="status"
+			type="sql"
+			label="Статус рассмотрения"
+			query="SELECT * FROM #__feedback_status order by id"
+			key_field="id" 
+			value_field="name" 
+			onchange="this.form.submit();"
+			>
+			<option value=""> -= Статус рассмотрения =- </option>
+		</field>
+		
+		<field
+			name="type"
+			type="sql"
+			label="Вид обращения"
+			query="SELECT * FROM #__feedback_type order by id"
+			key_field="id" 
+			value_field="name" 
+			onchange="this.form.submit();"
+			>
+			<option value=""> -= Вид обращения =- </option>
+		</field>
+		
+		<field
+			name="hide"
+			type="list"
+			label="Приватное"
+			onchange="this.form.submit();"
+			>
+			<option value=""> -= Приватные сообщения =- </option>
+			<option value="0">Нет</option>
+			<option value="1">Да</option>
+		</field>
+		
+	</fields>
+	<fields name="list">
+		<field
+			name="limit"
+			type="limitbox"
+			label="COM_BANNERS_LIST_LIMIT"
+			class="input-mini"
+			default="25"
+			onchange="this.form.submit();"
+		/>
+	</fields>
+</form>
