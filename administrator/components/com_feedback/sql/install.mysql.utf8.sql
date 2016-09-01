@@ -144,11 +144,13 @@ CREATE TABLE IF NOT EXISTS `#__feedback_project` (
 	`wwwsite`		varchar(100)		NOT NULL						COMMENT 'Место размещения',
 	`manager_id`	int(11)				NOT NULL						COMMENT 'Основной менеджер',
 	`description`	text				NOT NULL						COMMENT 'Краткое описание',
+	`status_work`	tinyint(1)			NOT NULL	DEFAULT '1'			COMMENT 'Отображать статус выполнения',
+	`types`			varchar(50)			NOT NULL						COMMENT 'Отображение типов отзывов',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Проекты';
 
 insert into `#__feedback_project` value 
-	(1,'Отзовик','My site',(SELECT min(`id`) FROM `#__users`),'.');
+	(1,'Отзовик','localhost',(SELECT min(`id`) FROM `#__users`),'.');
 
 -- --------------------------------------------------------
 -- Структура таблицы `Категории`

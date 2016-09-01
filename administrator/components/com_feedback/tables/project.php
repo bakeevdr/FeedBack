@@ -7,4 +7,15 @@ class FeedBackTableProject extends JTable
 	{
 		parent::__construct('#__feedback_project', 'id', $db);
 	}
+	
+	public function bind( $array, $ignore = '' )
+	{
+		if (isset($array['types']) && is_array($array['types'])){
+			$types = new JRegistry;
+			$array['types'] = (string)$types->loadArray($array['types']);
+		}
+		
+		return parent::bind( $array, $ignore );
+	}
+	
 }

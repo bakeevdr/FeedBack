@@ -16,19 +16,21 @@ JHtml::_('behavior.keepalive');
 
 <form action="index.php" method="post" name="adminForm" id="Project-form" class="form-validate">
 	<div class="row-fluid">
-		<div class="span10 form-horizontal">
-				<?php echo JHtml::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
-				
-					<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'details', 'Общее'); // =========================?>
-							<?php foreach ($this->form->getFieldset('details') as $field) {
-								Echo'<div class="control-group">
-										<div class="control-label">'. $field->label.'</div>
-										<div class="controls">'. $field->input.'</div>
-									</div>';
-							}?>
-					<?php echo JHtml::_('bootstrap.endTab'); ?>
-					
-				<?php echo JHtml::_('bootstrap.endTabSet'); ?>
+		<div class="span12 form-horizontal">
+			<?php 
+				echo JHtml::_('bootstrap.startTabSet', 'Project', array('active' => 'display'));
+				foreach ($this->form->getFieldsets() as $fieldSet) {
+					echo JHtml::_('bootstrap.addTab', 'Project', $fieldSet->name, $fieldSet->label); 
+					foreach ($this->form->getFieldset($fieldSet->name) as $field) {
+						Echo'<div class="control-group">
+								<div class="control-label">'. $field->label.'</div>
+								<div class="controls">'. $field->input.'</div>
+							</div>';
+					}
+					echo JHtml::_('bootstrap.endTab');
+				}
+				echo JHtml::_('bootstrap.endTabSet'); 
+			?>
 		</div>
 		<div>
 			<input type="hidden" name="task" value="Projects.edit" />

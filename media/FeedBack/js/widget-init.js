@@ -2,6 +2,8 @@ $(document).ready ( function(){
 	if(FBOptions) {
 		var FBOpt = FBOptions;
 		var CSS;
+		var URLJs = 'http://feedback'; //.kadastr.ru
+		//var URLJs = window.location;
 		CSS =	".FB_tab_cont{ box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.247) inset, 0 1px 3px rgba(0, 0, 0, 0.498); height: 29px;overflow: hidden;background-color: #425E85;z-index: 100001;position: fixed;right: 0px;top:200px;border-radius: 5px 0 0 5px;}";
 		CSS +=	".FB_tab_cont:hover{height: auto;animation-name: none;}";
 		CSS +=	".FB_tab_cont>img:hover {position: static;}";
@@ -29,7 +31,7 @@ $(document).ready ( function(){
 		FB_tab.setAttribute("href", "#");
 		FB_tab.setAttribute("class", "FB_tab_cont");
 		FB_tab.setAttribute("onclick", "FB_widgetOpen();");
-		FB_tab.innerHTML = '<img src="http://Feedback/media/Feedback/images/widgettab.png">';
+		FB_tab.innerHTML = '<img src="'+URLJs+'/media/feedback/images/widgettab.png">';
 		document.body.insertBefore(FB_tab, document.body.firstChild);
 		
 		FB_overlay = document.createElement("div");
@@ -41,7 +43,7 @@ $(document).ready ( function(){
 		FB_widget = document.createElement("div");
 		FB_widget.setAttribute("id", "FB_widget");
 		FB_widget.setAttribute("style", "display: none;");
-		FB_widget.innerHTML = '<div class="FB_header"><button type="button" class="FB_close" onclick="FB_widgetClose();">×</button><h4 class="FB_title">Оставьте свой отзыв</h4></div><iframe src="http://Feedback/widget?project='+FBOpt.project+'" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>';
+		FB_widget.innerHTML = '<div class="FB_header"><button type="button" class="FB_close" onclick="FB_widgetClose();">×</button><h4 class="FB_title">Оставьте свой отзыв</h4></div><iframe src="'+URLJs+'/widget?p='+FBOpt.project+'" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>';
 		document.body.insertBefore(FB_widget, document.body.firstChild);
 	}
 

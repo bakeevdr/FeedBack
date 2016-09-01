@@ -24,9 +24,9 @@ class FeedBackModelProject extends JModelAdmin{
 	
 	public function getItem($pk = null){
 		if ($item = parent::getItem($pk)) {
-			/*$registry = new JRegistry;
-			$registry->loadString($item->paramuser);
-			$item->paramuser = $registry->toArray();/**/
+			$types = new JRegistry;
+			$types->loadString($item->types);
+			$item->types = $types->toArray();
 		}
 		return $item;
 	}

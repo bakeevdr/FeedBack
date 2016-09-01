@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
 	<fieldset
-		name="details"
-		label="Общее"
+		name="project"
+		label="Проект"
 	>
 		<field
 			name="id"
@@ -41,5 +41,31 @@
 			filter = "raw"
 			required="true"
 		/>
+	</fieldset>
+	<fieldset
+		name="display"
+		label="Отображение"
+	>
+<!--		 <field
+			name="status_work"
+			type="list"
+			label="Статус выполнения"
+			required="true"
+			default="1"
+			description="Отображать статус выполнения"
+		>
+			<option value="1">Да</option>
+			<option value="0">Нет</option>
+		</field>		
+		<field
+			name="types"
+			type="sqlcheckboxes"
+			label="Типы отзывов"
+			query="SELECT * FROM #__feedback_type"
+			key_field="id"
+			value_field="name"
+			required="true"
+			>
+		</field> -->
 	</fieldset>
 </form>
